@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 4, 2025 9:17:16 PM by Hibernate Tools 4.3.1 -->
+
+<hibernate-mapping>
+    <class name="hibernate.Courses" table="COURSES">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="100" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="255" />
+        </property>
+        <set name="modules" cascade="all">
+            <key column="course_id"/>
+            <one-to-many class="hibernate.Modules"/>
+        </set>
+    </class>
+</hibernate-mapping>

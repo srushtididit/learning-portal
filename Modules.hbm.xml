@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="hibernate.Modules" table="MODULES">
+        
+        <!-- Primary Key -->
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+
+        <!-- Title Column -->
+        <property name="title" type="string">
+            <column name="TITLE" length="100" not-null="true" />
+        </property>
+
+        <!-- Content Column -->
+        <property name="content" type="text">
+            <column name="CONTENT" />
+        </property>
+
+        <!-- Many-to-One Relationship with Courses -->
+        <many-to-one name="courses" class="hibernate.Courses">
+            <column name="COURSE_ID" not-null="true"/>
+        </many-to-one>
+
+    </class>
+</hibernate-mapping>
